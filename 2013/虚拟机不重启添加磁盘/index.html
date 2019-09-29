@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="曾经的 Windows 用户, 正致力于人工智障">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Alfred Gao">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="虚拟机不重启添加磁盘">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="曾经的 Windows 用户, 正致力于人工智障">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="阿福">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>虚拟机不重启添加磁盘 - 阿福</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="http://photos.alfredg.org">
+                    Photos
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
+        
+    </div>
+</header>
+
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2013/虚拟机不重启添加磁盘/">
+                虚拟机不重启添加磁盘
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">20131108</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>虽然虚拟机重新启动非常迅速, 但是总是有各种的理由不愿意重启.</p>
+<p>实际上操作系统基本都支持动态增加(和减少)磁盘的, 只要硬件支持动态增减, 系统基本都没问题. 常见的服务器热插拔硬盘; PC上我也经常直接插拔硬盘进行处理, 除了个别情况外也都可以识别 - 原理上硬件是没有设计用来这样操作的, 风险自负.</p>
+<p>在开机状态下, 虚拟化环境中虚拟硬盘不止可以动态增减, 单个磁盘的容量也可以变化 (嗯, 大部分还只支持增加). 然后在虚拟机操作系统里面进行后续操作就可以了, 这部分操作其实和在真实(支持硬件热扩展)的服务器上操作是一样的:</p>
+<p>###Windows</p>
+<p>Windows环境直接调整好磁盘后, 进入磁盘管理器进行处理即可, 如果磁盘管理器未发现变化就刷新一下.</p>
+<p>###Linux添加硬盘</p>
+<ol>
+<li>看一下硬盘接口的编号情况.<img src="/2013/虚拟机不重启添加磁盘/catprocscsiscsi.png"></li>
+<li>如果没有进行特殊制定, 那么新添加硬盘的话就是SCSI卡编号和通道编号不变, ID增加1. 如果在增加硬盘时手工进行了指定的话, 那么按照手工指定的参数. 上面的情况就可以<br><code>echo &quot;scsi add-single-device 2 0 1 0&quot; &gt; /proc/scsi/scsi</code><br>四个数字分别是SCSI卡号, 通道号, 设备ID号, LUN号</li>
+<li>接下来<code>cat /proc/scsi/scsi</code>会发现设备多出来了, 到/dev下面也能看到新的设备</li>
+<li>然后就可以按照一般的方法fdisk, mkfs了</li>
+<li>这样修改的话, 如果编辑了fstab一定要仔细检查一下, 因为不重新启动的话万一fstab被编辑坏了不会被发现, 下次重新启动就悲剧了</li>
+</ol>
+<p>###Linux扩展硬盘大小</p>
+<ol>
+<li>找到调整过的磁盘的编号, 4个数字, 和上面的介绍一样.</li>
+<li>运行命令让系统刷新硬件状态(用实际的编号替换下面命令中的例子)<br><code>echo &quot;1&quot; &gt;/sys/class/scsi_device/2:0:1:0/device/rescan</code></li>
+<li><code>fdisk -l</code> 确认一下系统已经识别了硬盘的容量变化以及当前分区情况</li>
+<li><code>fdisk</code>手工计算并调整分区表. (如果用了LVM的话, 用相关命令调整逻辑分区)</li>
+<li>调整文件系统<br><code>resize2fs device</code><br>如果resize2fs不能识别分区大小已经改变, 可以partprobe.</li>
+</ol>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Technical/">#Technical</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+    <div class="comments">
+        
+
+
+
+    </div>
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    曾经的 Windows 用户。正致力于人工智障研发。
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2018/02-和谁做朋友/">数学思维的学习，应该做成“训练”还是“休闲”？</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2018/01-4年级数学/">你的数学，在四年级结束还是开始？</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2017/05-airpodairdrop/">AirPods air drop</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2017/06-奥数2/">也论学习奥数的意义 (续)</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/1Fr3dG">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:alfredg@alfredg.org">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @1Fr3dG. All right reserved | <a href="http://www.miitbeian.gov.cn" title="网站备案" ' target="_blank">沪ICP备15046577号-1</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Disqus Comments -->
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
