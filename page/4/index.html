@@ -2,7 +2,7 @@
 <html lang="en">
 
 <!-- Head tag -->
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,26 +20,26 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="阿福"/>
+        <meta property="og:title" content="阿福">
     
 
     <!--Open Graph Description-->
     
-        <meta property="og:description" content="曾经的 Windows 用户, 正致力于人工智障" />
+        <meta property="og:description" content="曾经的 Windows 用户, 正致力于人工智障">
     
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="阿福"/>
+    <meta property="og:site_name" content="阿福">
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="website">
     
 
     <!--Page Cover-->
     
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary">
     
 
     <!-- Title -->
@@ -60,18 +60,16 @@
     <![endif]-->
 
     <!-- Gallery -->
-    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    
-<link rel="stylesheet" href="/css/style.css">
-
+    <link rel="stylesheet" href="/css/style.css">
 
     <!-- Google Analytics -->
     
 
 
-<meta name="generator" content="Hexo 5.0.2"></head>
+</head>
 
 
 <body>
@@ -104,7 +102,7 @@
             </li>
             
             <li class="menu-item">
-                <a target="_blank" rel="noopener" href="http://photos.alfredg.org">
+                <a href="http://photos.alfredg.org">
                     Photos
                 </a>
             </li>
@@ -157,8 +155,7 @@
     
         <div class="content">
             <a href="/2006/VMWare/how-to-make-your-virtual-machine-smaller-and-faster.zip" title="How to make your virtual machine smaller and faster">How to make your virtual machine smaller and faster</a>
-<br>
-
+<p><br></p>
 <p>如果你用过我做的VM Template并且喜欢那些又小又快的VM的话, 很遗憾地说, 我没有时间再做了. 其实除了前段时间给Robin做了一个以外, 已经快一年没做这种东西了. 如果你觉得自己做的VM又大又慢的话, 我在这里给出优化的方法, 其他爱莫能助了.</p>
 
         </div>
@@ -171,7 +168,7 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2006/%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98-%E6%8A%80%E6%9C%AF%E6%94%AF%E6%8C%81%E4%BA%BA%E5%91%98-%E6%AD%A3%E7%89%88%E7%94%A8%E6%88%B7-%E7%9B%97%E7%89%88%E7%94%A8%E6%88%B7/">
+            <a href="/2006/开发人员-技术支持人员-正版用户-盗版用户/">
                 开发人员->技术支持人员->正版用户->盗版用户
             </a>
         </h1>
@@ -240,7 +237,7 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2006/%E5%9C%A8%E5%9C%B0%E9%93%81%E4%B8%AD%E7%9C%8B%E5%88%B0Windows-XP/">
+            <a href="/2006/在地铁中看到Windows-XP/">
                 在地铁中看到Windows XP
             </a>
         </h1>
@@ -288,11 +285,10 @@
         <div class="content">
             <p>R*y一定想要一个命令行的工具来计算每个用户打印了多少张纸 (通过EventLog), 告诉他要买第三方软件就是不肯. 考虑到OOB的问题, 就不在现有系统上帮他实现, 所以在MSH上看了一下, 结果发现真是xxx的方便啊.</p>
 <p>一条命令搞定:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">get-eventlog</span> systemwhere &#123;(<span class="variable">$_</span>.source <span class="operator">-eq</span> <span class="string">&quot;Print&quot;</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.eventid <span class="operator">-eq</span> <span class="string">&quot;10&quot;</span>)&#125;)<span class="keyword">foreach</span> &#123;<span class="variable">$_</span>.TimeWritten.tostring() +<span class="string">&quot;,&quot;</span>+ <span class="variable">$_</span>.username.tostring() +<span class="string">&quot;,&quot;</span>+ <span class="variable">$_</span>.ReplacementStrings[<span class="number">6</span>].tostring()&#125;<span class="built_in">sort-object</span> <span class="literal">-property</span> TimeWritten&gt;PrintCount.csv</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="built_in">get-eventlog</span> systemwhere &#123;(<span class="variable">$_</span>.source <span class="operator">-eq</span> <span class="string">"Print"</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.eventid <span class="operator">-eq</span> <span class="string">"10"</span>)&#125;)<span class="keyword">foreach</span> &#123;<span class="variable">$_</span>.TimeWritten.tostring() +<span class="string">","</span>+ <span class="variable">$_</span>.username.tostring() +<span class="string">","</span>+ <span class="variable">$_</span>.ReplacementStrings[<span class="number">6</span>].tostring()&#125;<span class="built_in">sort-object</span> <span class="literal">-property</span> TimeWritten&gt;PrintCount.csv</span><br></pre></td></tr></table></figure>
 <p>用Excel打开, 做图表啊做图表.</p>
 <p>一劳永逸 (记得放到profile.msh里啊):</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print-count</span></span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$local:summary</span> = <span class="selector-tag">@</span>&#123;&#125;</span><br><span class="line"><span class="variable">$local:sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="variable">$Args</span>.length <span class="operator">-eq</span> <span class="number">2</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$local:elog</span>=(<span class="built_in">get-eventlog</span> systemwhere &#123;(<span class="variable">$_</span>.source <span class="operator">-eq</span> <span class="string">&quot;Print&quot;</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.eventid <span class="operator">-eq</span> <span class="string">&quot;10&quot;</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.timegenerated <span class="operator">-ge</span> <span class="variable">$args</span>[<span class="number">0</span>]) <span class="operator">-and</span> (<span class="variable">$_</span>.timegenerated <span class="operator">-le</span> <span class="variable">$args</span>[<span class="number">1</span>])&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$local:elog</span>=(<span class="built_in">get-eventlog</span> systemwhere &#123;(<span class="variable">$_</span>.source <span class="operator">-eq</span> <span class="string">&quot;Print&quot;</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.eventid <span class="operator">-eq</span> <span class="string">&quot;10&quot;</span>)&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$local:elog</span>.count <span class="operator">-gt</span> <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$local:log</span> <span class="keyword">in</span> <span class="variable">$local:elog</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(<span class="operator">-not</span> <span class="variable">$summary</span>.containskey(<span class="variable">$local:log</span>.username.tostring()))</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$summary</span>.add(<span class="variable">$local:log</span>.username.tostring(),<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$summary</span>[<span class="variable">$local:log</span><span class="type">.username.tostring</span>()]+=<span class="variable">$local:log</span>.ReplacementStrings[<span class="number">6</span>]</span><br><span class="line"><span class="variable">$sum</span>+=<span class="variable">$local:log</span>.ReplacementStrings[<span class="number">6</span>]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$local:format</span> = <span class="selector-tag">@</span>&#123;Expression=&#123;<span class="variable">$_</span>.Key&#125;; Label = <span class="string">&quot;User Name&quot;</span>; Width = <span class="number">20</span>&#125;, <span class="selector-tag">@</span>&#123;Expression=&#123;<span class="variable">$_</span>.Value&#125;; Label = <span class="string">&quot;Printed Pages&quot;</span>; Width = <span class="number">25</span>&#125;</span><br><span class="line"><span class="variable">$local:summarysort</span><span class="literal">-object</span> <span class="literal">-property</span> Value<span class="built_in">format-table</span> <span class="variable">$local:format</span></span><br><span class="line"><span class="built_in">write-host</span> <span class="string">&quot;----------------------------------------------&quot;</span></span><br><span class="line"><span class="built_in">write-host</span> (<span class="string">&quot;Total Pages&quot;</span>+<span class="string">&quot; &quot;</span>*(<span class="number">35</span>-<span class="variable">$local:sum</span>.tostring().length)+<span class="variable">$local:sum</span>.tostring())</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print-count</span></span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$local:summary</span> = <span class="selector-tag">@</span>&#123;&#125;</span><br><span class="line"><span class="variable">$local:sum</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">if</span> ( <span class="variable">$Args</span>.length <span class="operator">-eq</span> <span class="number">2</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$local:elog</span>=(<span class="built_in">get-eventlog</span> systemwhere &#123;(<span class="variable">$_</span>.source <span class="operator">-eq</span> <span class="string">"Print"</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.eventid <span class="operator">-eq</span> <span class="string">"10"</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.timegenerated <span class="operator">-ge</span> <span class="variable">$args</span>[<span class="number">0</span>]) <span class="operator">-and</span> (<span class="variable">$_</span>.timegenerated <span class="operator">-le</span> <span class="variable">$args</span>[<span class="number">1</span>])&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$local:elog</span>=(<span class="built_in">get-eventlog</span> systemwhere &#123;(<span class="variable">$_</span>.source <span class="operator">-eq</span> <span class="string">"Print"</span>) <span class="operator">-and</span> (<span class="variable">$_</span>.eventid <span class="operator">-eq</span> <span class="string">"10"</span>)&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (<span class="variable">$local:elog</span>.count <span class="operator">-gt</span> <span class="number">0</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">foreach</span> (<span class="variable">$local:log</span> <span class="keyword">in</span> <span class="variable">$local:elog</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(<span class="operator">-not</span> <span class="variable">$summary</span>.containskey(<span class="variable">$local:log</span>.username.tostring()))</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$summary</span>.add(<span class="variable">$local:log</span>.username.tostring(),<span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$summary</span>[<span class="variable">$local:log</span><span class="type">.username.tostring</span>()]+=<span class="variable">$local:log</span>.ReplacementStrings[<span class="number">6</span>]</span><br><span class="line"><span class="variable">$sum</span>+=<span class="variable">$local:log</span>.ReplacementStrings[<span class="number">6</span>]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$local:format</span> = <span class="selector-tag">@</span>&#123;Expression=&#123;<span class="variable">$_</span>.Key&#125;; Label = <span class="string">"User Name"</span>; Width = <span class="number">20</span>&#125;, <span class="selector-tag">@</span>&#123;Expression=&#123;<span class="variable">$_</span>.Value&#125;; Label = <span class="string">"Printed Pages"</span>; Width = <span class="number">25</span>&#125;</span><br><span class="line"><span class="variable">$local:summarysort</span><span class="literal">-object</span> <span class="literal">-property</span> Value<span class="built_in">format-table</span> <span class="variable">$local:format</span></span><br><span class="line"><span class="built_in">write-host</span> <span class="string">"----------------------------------------------"</span></span><br><span class="line"><span class="built_in">write-host</span> (<span class="string">"Total Pages"</span>+<span class="string">" "</span>*(<span class="number">35</span>-<span class="variable">$local:sum</span>.tostring().length)+<span class="variable">$local:sum</span>.tostring())</span><br></pre></td></tr></table></figure>
 <p>然后就可以:<br><code>print-count</code><br>或者<br><code>print-count (&quot;2005-1-1&quot;,&quot;2005-12-31&quot;)</code></p>
 
         </div>
@@ -324,8 +320,7 @@
 <p>年轻人的世界越来越复杂, 回想我年轻的时候, 我用下面这样的prompt: (在cmd下面用的, 如果要在command下面需要做些修改)</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prompt [$T$H$H$H$H$H$H][@$M]$S[$+$P]$_$G</span><br></pre></td></tr></table></figure>
 <p>而现在为了实现近似的功能:</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prompt</span></span> &#123; <span class="string">&quot;[MSH][&quot;</span>+(<span class="built_in">get-date</span>).hour+<span class="string">&quot;:&quot;</span>+(<span class="built_in">get-date</span>).minute.tostring(<span class="string">&quot;D2&quot;</span>)+<span class="string">&quot;]&quot;</span>+<span class="string">&quot; [&quot;</span>+(<span class="built_in">get-location</span>).provider.tostring().split(<span class="string">&quot;\&quot;</span>)[-<span class="number">1</span>]+<span class="string">&quot;][&quot;</span>+(<span class="built_in">get-location</span>).providerpath+<span class="string">&quot;]`n&gt;&quot;</span> &#125;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prompt</span></span> &#123; <span class="string">"[MSH]["</span>+(<span class="built_in">get-date</span>).hour+<span class="string">":"</span>+(<span class="built_in">get-date</span>).minute.tostring(<span class="string">"D2"</span>)+<span class="string">"]"</span>+<span class="string">" ["</span>+(<span class="built_in">get-location</span>).provider.tostring().split(<span class="string">"\"</span>)[-<span class="number">1</span>]+<span class="string">"]["</span>+(<span class="built_in">get-location</span>).providerpath+<span class="string">"]`n&gt;"</span> &#125;</span><br></pre></td></tr></table></figure>
 <p>如此复杂的命令等人家开始问了才去学的话, 恐怕就不太来得及了, 建议大家有空的时候去看一下.</p>
 <p>ps: 如果你不知道prompt是什么……表告诉我</p>
 
@@ -384,8 +379,7 @@
 <h5 id="May-28-0-35am"><a href="#May-28-0-35am" class="headerlink" title="May 28, 0:35am"></a>May 28, 0:35am</h5><p><code>stop 0xed &quot;UNMOUNTABLE_BOOT_VOLUME&quot;</code> during reboot. Status 0xc00000032 means file system crushed due to unexcepted power off<br>Tried reboot again, same error</p>
 <h5 id="May-28-0-40am"><a href="#May-28-0-40am" class="headerlink" title="May 28, 0:40am"></a>May 28, 0:40am</h5><p>Boot to RC, Stop with same bug check during loading RC</p>
 <h5 id="May-28-0-50am"><a href="#May-28-0-50am" class="headerlink" title="May 28, 0:50am"></a>May 28, 0:50am</h5><p>Boot to RC from Win2k3 CD, it jumped to C:\ WITHOUT asking password of administrator</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dir</span> </span><br><span class="line">&quot;枚举目录时遇到错误&quot;</span><br><span class="line"><span class="built_in">chkdsk</span></span><br><span class="line">&quot;分区看起来不错......&quot;</span><br><span class="line"><span class="built_in">chkdsk</span> /p</span><br><span class="line">&quot;在<span class="number">75</span>%左右&quot;遇到一个不可恢复错误...&quot;</span><br></pre></td></tr></table></figure>
-
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dir</span> </span><br><span class="line">"枚举目录时遇到错误"</span><br><span class="line"><span class="built_in">chkdsk</span></span><br><span class="line">"分区看起来不错......"</span><br><span class="line"><span class="built_in">chkdsk</span> /p</span><br><span class="line">"在<span class="number">75</span>%左右"遇到一个不可恢复错误..."</span><br></pre></td></tr></table></figure>
 <h5 id="May-28-1am"><a href="#May-28-1am" class="headerlink" title="May 28, 1am"></a>May 28, 1am</h5><p>拆卸, plug the 80G disk to X31 by USB2IDE adapter</p>
 <h5 id="May-28-1-05am"><a href="#May-28-1-05am" class="headerlink" title="May 28, 1:05am"></a>May 28, 1:05am</h5><p>Launch EasyRecovery<br>Advanced Recovery -&gt; “MFT missing” /faint<br>RAW Recovery -&gt; Searching…</p>
 <h5 id="May-28-2-25am"><a href="#May-28-2-25am" class="headerlink" title="May 28, 2:25am"></a>May 28, 2:25am</h5><p>60G data find, selected 7.5G to recover</p>
@@ -439,15 +433,15 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/%E6%9C%AC%E4%BB%A5%E4%B8%BA%E6%98%AF%E7%89%A9%E7%90%86%E5%AE%9E%E9%AA%8C%E9%A2%98%EF%BC%8C%E5%85%B6%E5%AE%9E%E6%98%AF%E7%89%A9%E7%90%86%E5%AE%9A%E5%BE%8B%E9%A2%98/">在物理面前，我们都是愚蠢的凡人</a>
+                <a class="footer-post" href="/2020/本以为是物理实验题，其实是物理定律题/">在物理面前，我们都是愚蠢的凡人</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2018/02-%E5%92%8C%E8%B0%81%E5%81%9A%E6%9C%8B%E5%8F%8B/">数学思维的学习，应该做成“训练”还是“休闲”？</a>
+                <a class="footer-post" href="/2018/02-和谁做朋友/">数学思维的学习，应该做成“训练”还是“休闲”？</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2018/01-4%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6/">你的数学，在四年级结束还是开始？</a>
+                <a class="footer-post" href="/2018/01-4年级数学/">你的数学，在四年级结束还是开始？</a>
             </li>
             
             <li>
@@ -466,7 +460,7 @@
                 <ul class="list-inline footer-social-icons">
                     
                     <li class="list-inline-item">
-                        <a target="_blank" rel="noopener" href="https://github.com/1Fr3dG">
+                        <a href="https://github.com/1Fr3dG">
                             <span class="footer-icon-container">
                                 <i class="fa fa-github"></i>
                             </span>
@@ -496,7 +490,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="footer-copyright">
-                    @1Fr3dG. All right reserved | <a href='http://www.miitbeian.gov.cn' title='网站备案'' target='_blank'>沪ICP备15046577号-1</a>
+                    @1Fr3dG. All right reserved | <a href='https://beian.miit.gov.cn/' title='网站备案'' target='_blank'>沪ICP备15046577号-1</a>
                 </div>
             </div>
         </div>
@@ -515,9 +509,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 
 <!-- Custom JavaScript -->
-
 <script src="/js/main.js"></script>
-
 
 <!-- Disqus Comments -->
 
